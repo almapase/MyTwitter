@@ -1,0 +1,37 @@
+{
+  "name": "mytwitter",
+  "version": "1.0.0",
+  "description": "Clon de twitter con ReactJS",
+  "main": "/build/app.js",
+  "scripts": {
+    "build": "webpack --colors",
+    "serve": "webpack-dev-server --content-base build/ --colors --progress",
+    "start": "npm run build && npm run serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/almapase/MyTwitter.git"
+  },
+  "author": "Alex Pacheco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/almapase/MyTwitter/issues"
+  },
+  "homepage": "https://github.com/almapase/MyTwitter#readme",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-loader": "^6.4.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "css-loader": "^0.26.2",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "html-webpack-plugin": "^2.28.0",
+    "style-loader": "^0.13.2",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
+}
