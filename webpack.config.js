@@ -2,24 +2,34 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const cssModules = 'modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]'
+const path = require('path');
+const APP_DIR = path.resolve(__dirname, 'src');
+const BUILD_DIR = path.resolve(__dirname, 'build');
 
 module.exports = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
 
-  entry: ['./src/index.jsx'],
+  entry: [APP_DIR + '/index.jsx'],
 
   output: {
+    path: BUILD_DIR,
     filename: 'app.js',
-    path: '/Users/almapase/projects/azaustre/react/mytwitter/build',
     publicPath: '/'
   },
 
   module: {
-    loaders: [
-      { test: /(\.js|jsx)$/, exclude: /node_modules/, loaders: ['babel-loader'] },
-      { test: /\.css$/, loader: `style-loader!css!css-loader?${cssModules}` }
+    rules: [
+      {
+        test: /(\.js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader',`css-loader?${cssModules}`]
+      }
     ]
   },
 
