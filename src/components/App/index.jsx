@@ -13,7 +13,8 @@ class App extends Component {
       user: {
         photoURL: 'https://pbs.twimg.com/profile_images/839971293390864384/qEnJeVT-.jpg',
         email: 'alex.pacheco.s@gmail.com',
-        onOpenText: false
+        displayName: 'Alex Pacheco'
+        // onOpenText: false
       }
     }
   }
