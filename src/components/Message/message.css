@@ -46,3 +46,19 @@
 .icon{
   margin-right: 3em;
 }
+
+.num{
+  font-size: 10pt;
+  margin-right: 3em;
+  margin-left: 0.25em;
+}
+
+.rtGreen{
+  color: #20883f;
+  margin-right: 3em;
+}
+
+.favYellow{
+  color: #e2c400;
+  margin-right: 3em;
+}
