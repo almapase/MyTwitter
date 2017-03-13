@@ -17,6 +17,7 @@ class Main extends Component {
         {favorites: []}
       ),
       openText: false,
+      userNameToReply: '',
       messages: [
         {
           id: uuid.v4(),
@@ -46,6 +47,7 @@ class Main extends Component {
     this.handleOpenText = this.handleOpenText.bind(this)
     this.handleRetweet = this.handleRetweet.bind(this)
     this.handleFavorite = this.handleFavorite.bind(this)
+    this.handleReplyTweet = this.handleReplyTweet.bind(this)
   }
 
   handleSendText(event){
@@ -56,7 +58,9 @@ class Main extends Component {
       displayName: this.props.user.displayName,
       picture: this.props.user.photoURL,
       date: Date.now(),
-      text: event.target.text.value
+      text: event.target.text.value,
+      favorites: 0,
+      retweets: 0
     }
     this.setState({
       messages: this.state.messages.concat(newMessage),
@@ -117,12 +121,20 @@ class Main extends Component {
 
   }
 
+  handleReplyTweet(msgId, userNameToReply){
+    this.setState({
+      openText: true,
+      userNameToReply: userNameToReply
+    })
+  }
+
   renderOpenText(){
     if (this.state.openText) {
       return (
         <InputText
           onSendText={this.handleSendText}
           onCloseText={this.handleCloseText}
+          userNameToReply={this.state.userNameToReply}
         />
       )
     }
@@ -141,6 +153,7 @@ class Main extends Component {
           messages={this.state.messages}
           onRetweet={this.handleRetweet}
           onFavorite={this.handleFavorite}
+          onReplyTweet={this.handleReplyTweet}
         />
       </div>
     )
